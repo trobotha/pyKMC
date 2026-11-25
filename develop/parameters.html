@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
     
     
       
@@ -29,10 +29,10 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -352,6 +352,90 @@
     
   
     User Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="atomic_environments.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Atomic Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="recycling.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Event Recycling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="active_volumes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Active Volumes
   
 
     
@@ -700,6 +784,90 @@
     
   
     Strategy pattern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dev_results.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Result type
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dev_engine.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Engine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dev_parallelization_manager.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manager and Parallelization
   
 
     
@@ -1090,6 +1258,34 @@
     
   
     EventTable
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="api/event_recycling.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EventRecycling
   
 
     
@@ -1685,6 +1881,13 @@
   </details></p>
 </li>
 <li>
+<p><strong><code>group_size</code></strong> : <code>int</code>, default = <code>-1</code>
+<br />
+<details><summary>Description</summary>
+  Number of MPI worker ranks in the group communicator (replaces old global mode). -1 means all worker ranks.
+  </details></p>
+</li>
+<li>
 <p><strong><code>engine_use_rank_0</code></strong> : <code>bool</code>, default = <code>False</code>
 <br />
 <details><summary>Description</summary>
@@ -1696,6 +1899,13 @@
 <br />
 <details><summary>Description</summary>
   Controls the level of detail in the simulation output.
+  </details></p>
+</li>
+<li>
+<p><strong><code>disp_thr</code></strong> : <code>float</code>, default = <code>0.05</code>
+<br />
+<details><summary>Description</summary>
+  Angstroms. Atoms displaced by more than this between two KMC steps are counted as moved in the output file.
   </details></p>
 </li>
 <li>
@@ -1731,6 +1941,13 @@
 <br />
 <details><summary>Description</summary>
   Enable event selection bias. Requires a [Bias] section.
+  </details></p>
+</li>
+<li>
+<p><strong><code>max_physical_time</code></strong> : <code>float</code>, optional
+<br />
+<details><summary>Description</summary>
+  Maximum physical (simulated) time in ps. If set, the simulation stops once this value is reached. Defaults to None (no time limit).
   </details>
 </p>
 </li>
@@ -1927,10 +2144,10 @@
   </details></p>
 </li>
 <li>
-<p><strong><code>pair_coeff</code></strong> : <code>str</code>, mandatory
+<p><strong><code>pair_coeff</code></strong> : <code>list[str]</code>, mandatory
 <br />
 <details><summary>Description</summary>
-  Lammps pair_coeff command.
+  Lammps pair_coeff command. Several commands are written as a list, one pair_coeff command per element, in order; e.g. with pair_style = hybrid/overlay eam/alloy zbl 1.0 2.0: [* * eam/alloy ./Cu01.eam.alloy Cu, 1 1 zbl 29.0 29.0]. A value without brackets is one command, kept as written.
   </details></p>
 </li>
 <li>
@@ -1952,6 +2169,13 @@
 <br />
 <details><summary>Description</summary>
   Lammps minimize command with frozen core
+  </details></p>
+</li>
+<li>
+<p><strong><code>verbosity</code></strong> : <code>int</code>, optional
+<br />
+<details><summary>Description</summary>
+  LAMMPS log verbosity. None inherits control.verbosity. 0 disables log file.
   </details>
 </p>
 </li>
@@ -2152,7 +2376,7 @@
 <p><strong><code>r_delr_sad_thr</code></strong> : <code>float</code>, default = <code>0.4</code>
 <br />
 <details><summary>Description</summary>
-  When a saddle point is found by pARTn, we compare artn delr_sad to this threshold to check if the system went back to the minimum. If yes, new attempt.
+  Acceptance threshold (in Angstrom) for a refined saddle point. A refinement run starts from the expected saddle position, and artn delr_sad measures how far the converged saddle has moved from that starting configuration. If delr_sad is strictly below this threshold (delr_sad < r_delr_sad_thr), the refined saddle stayed close to the expected saddle and is accepted; otherwise (e.g. the search fell back to the minimum), a new attempt is made, up to r_max_attempts.
   </details></p>
 </li>
 <li>
@@ -2621,6 +2845,20 @@
   </details></p>
 </li>
 <li>
+<p><strong><code>require_center</code></strong> : <code>bool</code>, default = <code>False</code>
+<br />
+<details><summary>Description</summary>
+  Whether only the central atom of an event is tested against the bias predicate. False (default): the predicate is satisfied by any atom of atom_indices found in the event neighbourhood. Only meaningful when atom_indices is set.
+  </details></p>
+</li>
+<li>
+<p><strong><code>thr_boost</code></strong> : <code>float</code>, optional
+<br />
+<details><summary>Description</summary>
+  Barrier cutoff in eV above which a desired event is excluded from the boost, keeping its unmodified rate. None (default) disables the cutoff. Only used in boost mode.
+  </details></p>
+</li>
+<li>
 <p><strong><code>direction</code></strong> : <code>list[float]</code>, optional
 <br />
 <details><summary>Description</summary>
@@ -2649,17 +2887,17 @@
   </details></p>
 </li>
 <li>
-<p><strong><code>topo_source</code></strong> : <code>str</code>, optional
+<p><strong><code>atom_source_idx</code></strong> : <code>int</code>, optional
 <br />
 <details><summary>Description</summary>
-  Source topology ID for 'topo' bias (e.g. vacancy).
+  Atom index for 'topo' bias. The topology ID of this atom at initialisation is used as the source topology for the remainder of the simulation.
   </details></p>
 </li>
 <li>
-<p><strong><code>topo_target</code></strong> : <code>str</code>, optional
+<p><strong><code>atom_target_idx</code></strong> : <code>int</code>, optional
 <br />
 <details><summary>Description</summary>
-  Target topology ID for 'topo' bias (e.g. interstitial).
+  Atom index for 'topo' bias (two-index mode). The topology ID of this atom at initialisation is used as the target topology. When absent, direction mode is active and a direction vector must be provided.
   </details>
 </p>
 </li>
@@ -2716,10 +2954,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["content.code.copy", "content.code.annotate", "content.code.highlight", "content.tabs.link"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["content.code.copy", "content.code.annotate", "content.code.highlight", "content.tabs.link"], "search": "assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="assets/javascripts/bundle.a5f9d56c.min.js"></script>
       
     
   </body>

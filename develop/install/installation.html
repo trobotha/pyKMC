@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
     
     
       
@@ -29,10 +29,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -519,6 +519,90 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../atomic_environments.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Atomic Environment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../recycling.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Event Recycling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../active_volumes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Active Volumes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -642,6 +726,90 @@
     
   
     Strategy pattern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dev_results.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Result type
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dev_engine.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Engine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dev_parallelization_manager.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manager and Parallelization
   
 
     
@@ -1032,6 +1200,34 @@
     
   
     EventTable
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/event_recycling.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EventRecycling
   
 
     
@@ -1485,7 +1681,7 @@
 all currently required (no alternative implementations exist yet):</p>
 <ul>
 <li><strong><a href="https://github.com/lammps/lammps">LAMMPS</a></strong> — the energy/force engine</li>
-<li><strong><a href="https://gitlab.com/mammasmias/artn-plugin">pARTn</a></strong> — saddle-point searches (event discovery)</li>
+<li><strong><a href="https://gitlab.com/mammasmias/artn-plugin/-/tree/v1.1.0">pARTn</a></strong> <code>v1.1.0</code> — saddle-point searches (event discovery)</li>
 <li><strong><a href="https://github.com/mammasmias/IterativeRotationsAssignments">IRA</a></strong> — shape matching (event reconstruction)</li>
 </ul>
 <p>The steps below assume you are comfortable building LAMMPS and managing Python
@@ -1524,7 +1720,7 @@ venv:</p>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>make<span class="w"> </span>install-python
 </span></code></pre></div>
 <p>Verify the module and its packages:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import lammps; lmp = lammps.lammps(); print(lmp.installed_packages)&quot;</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">"import lammps; lmp = lammps.lammps(); print(lmp.installed_packages)"</span>
 </span></code></pre></div>
 <h3 id="building-lammps-from-scratch">Building LAMMPS from scratch</h3>
 <p>Use cmake — the traditional make path no longer supports the PLUGIN package:</p>
@@ -1543,11 +1739,13 @@ venv:</p>
 </span></code></pre></div>
 <p>More details in the <a href="https://docs.lammps.org/Build_cmake.html">LAMMPS cmake guide</a>.</p>
 <h2 id="3-partn">3. pARTn</h2>
-<p>Build against your LAMMPS; this installs the <code>pypARTn</code> module into the active
-venv:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">cd</span><span class="w"> </span>/path/to/artn-plugin
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>cmake<span class="w"> </span>-B<span class="w"> </span>build<span class="w"> </span>-DWITH_LAMMPS<span class="o">=</span>ON<span class="w"> </span>-DLAMMPS_PATH<span class="o">=</span>/path/to/lammps/build<span class="w"> </span>-DARTN_INSTALL_PYTHON<span class="o">=</span>ON
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>cmake<span class="w"> </span>--build<span class="w"> </span>build<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>cmake<span class="w"> </span>--install<span class="w"> </span>build
+<p>pyKMC targets the pARTn release <code>v1.1.0</code>; later pARTn versions may introduce
+breaking changes. Fetch that tag and build against your LAMMPS; this installs
+the <code>pypARTn</code> module into the active venv:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>v1.1.0<span class="w"> </span>--depth<span class="w"> </span><span class="m">1</span><span class="w"> </span>https://gitlab.com/mammasmias/artn-plugin.git
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">cd</span><span class="w"> </span>artn-plugin
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>cmake<span class="w"> </span>-B<span class="w"> </span>build<span class="w"> </span>-DWITH_LAMMPS<span class="o">=</span>ON<span class="w"> </span>-DLAMMPS_PATH<span class="o">=</span>/path/to/lammps/build<span class="w"> </span>-DARTN_INSTALL_PYTHON<span class="o">=</span>ON
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>cmake<span class="w"> </span>--build<span class="w"> </span>build<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>cmake<span class="w"> </span>--install<span class="w"> </span>build
 </span></code></pre></div>
 <p>With <code>pypARTn</code> installed this way, input files need no library-path
 configuration (the <code>[pARTn]</code> section can stay empty) and no <code>PYTHONPATH</code>
@@ -1559,11 +1757,11 @@ exports.</p>
 </span></code></pre></div>
 <p>More details in the <a href="https://mammasmias.github.io/IterativeRotationsAssignments/#compilation">IRA documentation</a>.</p>
 <h2 id="5-verify">5. Verify</h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">"</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="s2">from lammps import lammps</span>
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="s2">import ase, pykmc, ira_mod, pypARTn</span>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="s2">print(&#39;All imports OK&#39;)</span>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="s2">&quot;</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="s2">print('All imports OK')</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="s2">"</span>
 </span></code></pre></div>
 <p>If an import fails, see <a href="../troubleshooting.html">Troubleshooting</a>.</p>
 <h2 id="6-running">6. Running</h2>
@@ -1643,10 +1841,10 @@ prefer your site's <code>mpi4py</code> module if one is provided.</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.copy", "content.code.annotate", "content.code.highlight", "content.tabs.link"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.copy", "content.code.annotate", "content.code.highlight", "content.tabs.link"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.a5f9d56c.min.js"></script>
       
     
   </body>
